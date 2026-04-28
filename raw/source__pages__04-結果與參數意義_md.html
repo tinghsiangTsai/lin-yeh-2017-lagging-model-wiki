@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>pages/04-結果與參數意義.md | Lin & Yeh (2017) 滯後抽水降深模型 Wiki</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <div class="page-bg"></div>
+  <header class="site-header">
+    <div class="brand">
+      <a href="../Home.html">Lin & Yeh (2017) 滯後抽水降深模型 Wiki</a>
+      <span>Leaky Confined Aquifer | Constant-Rate Pumping</span>
+    </div>
+    <nav class="top-nav">
+      <a href="../Home.html">Lin &amp; Yeh (2017) 滯後抽水降深模型 Wiki</a>
+<a href="../index.html">首頁索引</a>
+<a href="../pages__00-前言-解析解與數值解.html">前言：解析解與數值解</a>
+<a href="../pages__00-論文總覽.html">論文總覽</a>
+<a href="../pages__01-研究動機與核心主張.html">研究動機與核心主張</a>
+<a href="../pages__02-數學模型與假設.html">數學模型與假設</a>
+<a href="../pages__03-解析解與方法.html">解析解與方法</a>
+<a href="../pages__04-結果與參數意義.html">結果與參數意義</a>
+<a href="../pages__05-案例與應用.html">案例與應用</a>
+<a href="../pages__06-符號與參數表.html">符號與參數表</a>
+<a href="../pages__99-資料來源與檔案說明.html">資料來源與檔案說明</a>
+    </nav>
+  </header>
+  <main class="layout">
+    <aside class="sidebar">
+      <section class="sidebar-block">
+        <h2>本站說明</h2>
+        <p>這個頁面屬於 raw 區，提供原始 PDF、抽字結果與 Markdown 原文對照。</p>
+      </section>
+      <section class="sidebar-block">
+        <h2>來源與對照</h2>
+        
+        <p><a href="index.html">開啟 raw 索引</a></p>
+      </section>
+      <section class="sidebar-block">
+        <h2>主題頁面</h2>
+        <ul class="sidebar-list">
+          <li><a href="../pages__00-前言-解析解與數值解.html">前言：解析解與數值解</a></li><li><a href="../pages__00-論文總覽.html">論文總覽</a></li><li><a href="../pages__01-研究動機與核心主張.html">研究動機與核心主張</a></li><li><a href="../pages__02-數學模型與假設.html">數學模型與假設</a></li><li><a href="../pages__03-解析解與方法.html">解析解與方法</a></li><li><a href="../pages__04-結果與參數意義.html">結果與參數意義</a></li><li><a href="../pages__05-案例與應用.html">案例與應用</a></li><li><a href="../pages__06-符號與參數表.html">符號與參數表</a></li><li><a href="../pages__99-資料來源與檔案說明.html">資料來源與檔案說明</a></li>
+        </ul>
+      </section>
+    </aside>
+    <article class="content-card prose">
+      <h1>pages/04-結果與參數意義.md</h1><p>這裡顯示此頁對應的 Markdown 原始內容。</p><pre class="source-pre"># 結果與參數意義
+
+這頁回答：不同參數如何改變降深曲線，尤其是 `T`、`S`、`K&#x27;`、`s_q`、`s_s` 的意義。
+
+## `s_q` 與 `s_s` 的曲線效應
+
+### 當 `s_q &lt; s_s`
+
+這代表結構互制效應主導。作者的圖形顯示：
+
+- 降深會先增加。
+- 接近 `s_q` 後，曲線趨於平緩。
+- 到接近 `s_s` 之後，再次往上增加。
+- 因此在 `s_q` 到 `s_s` 間會出現近似平台段。
+
+這個平台段可視為 delayed response 的數學表達。
+
+### 當 `s_q &gt; s_s`
+
+這代表慣性效應主導。作者指出：
+
+- 較大的 `s_q` 會讓接近 `s_q` 前的降深更小。
+- 較大的 `s_s` 會讓接近 `s_s` 前的降深更大。
+- 在大 `s_qD` 情況下，可能出現帶有波動感的反應。
+
+### 當 `s_q = s_s`
+
+- 滯後效應消失。
+- 模型不再表現出額外的 lagging behavior。
+
+## 敏感度分析重點
+
+作者以正規化敏感度分析降深對參數變化的反應，主要結果如下：
+
+1. 早期時間內，`s_q`、`s_s`、`S` 的影響很明顯。
+2. 超過很早的時間段後，`T` 成為最敏感參數。
+3. `S` 在中段時間仍維持相當重要。
+4. `K&#x27;` 在較晚時間的相對重要性提高。
+5. 滯後參數的影響集中在與自身時間尺度相對應的時段，之後會逐漸消失。
+
+## 作者給出的具體時間判讀
+
+在論文的敏感度案例中，作者指出：
+
+- `s_q` 的影響大約到 `t = 0.4 h` 後趨於消失。
+- `s_s` 的影響大約到 `t = 4 h` 後趨於消失。
+
+這說明滯後參數不是全面改變整條曲線，而是強烈影響某些特定時間窗。
+
+## 各參數的物理判讀
+
+| 參數 | 變大時通常代表 | 對降深判讀的重點 |
+| --- | --- | --- |
+| `T` | 水平導水能力更強 | 常主導整體降深幅度與中晚期反應 |
+| `S` | 儲水量更大 | 影響早中期時間反應速度 |
+| `K&#x27;` | 上覆弱透水層更容易補注 | 晚期洩漏補注效果更明顯 |
+| `s_q` | 通量反應更慢、慣性時間更長 | 早期降深可能更慢，可能帶波動感 |
+| `s_s` | 梯度建立更慢、結構延遲更強 | 中期平坦段更明顯 |
+
+## 這篇論文真正提供的判釋價值
+
+過去若看到抽水曲線中間有平坦段，常直接想到雙重孔隙或裂隙-基質交換。這篇論文提醒，類似曲線也可能是：
+
+- 結構互制造成的梯度建立延遲
+- 慣性效應造成的暫態落後
+- 或兩者並存
+
+也就是說，曲線形狀不應只用單一傳統機制去解釋。
+</pre>
+    </article>
+  </main>
+</body>
+</html>

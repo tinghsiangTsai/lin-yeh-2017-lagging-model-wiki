@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>案例與應用 | Lin & Yeh (2017) 滯後抽水降深模型 Wiki</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="page-bg"></div>
+  <header class="site-header">
+    <div class="brand">
+      <a href="Home.html">Lin & Yeh (2017) 滯後抽水降深模型 Wiki</a>
+      <span>Leaky Confined Aquifer | Constant-Rate Pumping</span>
+    </div>
+    <nav class="top-nav">
+      <a href="Home.html">Lin &amp; Yeh (2017) 滯後抽水降深模型 Wiki</a>
+<a href="index.html">首頁索引</a>
+<a href="pages__00-前言-解析解與數值解.html">前言：解析解與數值解</a>
+<a href="pages__00-論文總覽.html">論文總覽</a>
+<a href="pages__01-研究動機與核心主張.html">研究動機與核心主張</a>
+<a href="pages__02-數學模型與假設.html">數學模型與假設</a>
+<a href="pages__03-解析解與方法.html">解析解與方法</a>
+<a href="pages__04-結果與參數意義.html">結果與參數意義</a>
+<a href="pages__05-案例與應用.html">案例與應用</a>
+<a href="pages__06-符號與參數表.html">符號與參數表</a>
+<a href="pages__99-資料來源與檔案說明.html">資料來源與檔案說明</a>
+    </nav>
+  </header>
+  <main class="layout">
+    <aside class="sidebar">
+      <section class="sidebar-block">
+        <h2>本站說明</h2>
+        <p>這個頁面是整理後的閱讀版內容，適合順著導覽理解論文脈絡。</p>
+      </section>
+      <section class="sidebar-block">
+        <h2>來源與對照</h2>
+        <p><a href="raw/source__pages__05-案例與應用_md.html">查看對應 Markdown</a></p>
+        <p><a href="raw/index.html">開啟 raw 索引</a></p>
+      </section>
+      <section class="sidebar-block">
+        <h2>主題頁面</h2>
+        <ul class="sidebar-list">
+          <li><a href="pages__00-前言-解析解與數值解.html">前言：解析解與數值解</a></li><li><a href="pages__00-論文總覽.html">論文總覽</a></li><li><a href="pages__01-研究動機與核心主張.html">研究動機與核心主張</a></li><li><a href="pages__02-數學模型與假設.html">數學模型與假設</a></li><li><a href="pages__03-解析解與方法.html">解析解與方法</a></li><li><a href="pages__04-結果與參數意義.html">結果與參數意義</a></li><li><a href="pages__05-案例與應用.html">案例與應用</a></li><li><a href="pages__06-符號與參數表.html">符號與參數表</a></li><li><a href="pages__99-資料來源與檔案說明.html">資料來源與檔案說明</a></li>
+        </ul>
+      </section>
+    </aside>
+    <article class="content-card prose">
+      <h1>案例與應用</h1>
+<p>這頁回答：作者怎麼把模型套到現地資料，結果顯示了什麼。</p>
+<h2>現地資料背景</h2>
+<p>論文使用 U.S. Geological Survey 在美國 South Dakota western Rapid City area 的 Madison aquifer 抽水試驗資料。</p>
+<h2>場址特性</h2>
+<ul>
+<li>含水層：Madison aquifer</li>
+<li>岩性：石灰岩</li>
+<li>厚度：約 <code>61 m</code></li>
+<li>上覆層：Minnelusa Formation，作為洩漏性弱透水層</li>
+<li>地質特性：裂隙與溶蝕特徵使其高度異質且高滲透</li>
+</ul>
+<h2>抽水試驗條件</h2>
+<ul>
+<li>抽水井：RC-5</li>
+<li>抽水時間：約 <code>7</code> 天</li>
+<li>抽水率：<code>386.11 m^3/h</code></li>
+<li>井篩直徑：約 <code>0.28 m</code></li>
+<li>套管直徑：約 <code>0.34 m</code></li>
+</ul>
+<h2>觀測井距離</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>井名</th><th>與抽水井距離</th></tr></thead>
+<tbody>
+<tr><td><code>LC</code></td><td><code>208 m</code></td></tr>
+<tr><td><code>SP-2</code></td><td><code>518 m</code></td></tr>
+<tr><td><code>BHPL</code></td><td><code>1,204 m</code></td></tr>
+<tr><td><code>CL-2</code></td><td><code>2,713 m</code></td></tr>
+<tr><td><code>CHLN-2</code></td><td><code>3,566 m</code></td></tr>
+</tbody>
+</table></div>
+<h2>估參設計</h2>
+<p>作者比較三組結果：</p>
+<ul>
+<li>Greene (1993) 的既有判釋結果</li>
+<li>Case 1：只估 <code>T</code>、<code>S</code>、<code>K&#x27;</code></li>
+<li>Case 2：估 <code>T</code>、<code>S</code>、<code>K&#x27;</code>、<code>s_q</code>、<code>s_s</code></li>
+</ul>
+<p>Case 2 以 Levenberg-Marquardt 最小平方配適。</p>
+<h2>Case 2 的重點結果</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>井名</th><th><code>T (m^2/h)</code></th><th><code>S x 10^-5</code></th><th><code>K&#x27; x 10^-4 (m/h)</code></th><th><code>s_q (h)</code></th><th><code>s_s (h)</code></th></tr></thead>
+<tbody>
+<tr><td><code>LC</code></td><td><code>4.88</code></td><td><code>12.59</code></td><td><code>2.14</code></td><td><code>0.153</code></td><td><code>0.199</code></td></tr>
+<tr><td><code>SP-2</code></td><td><code>7.20</code></td><td><code>17.55</code></td><td><code>3.25</code></td><td><code>0.203</code></td><td><code>0.383</code></td></tr>
+<tr><td><code>BHPL</code></td><td><code>47.05</code></td><td><code>40.00</code></td><td><code>1.50</code></td><td><code>13.954</code></td><td><code>4.325</code></td></tr>
+<tr><td><code>CL-2</code></td><td><code>149.48</code></td><td><code>41.71</code></td><td><code>1.05</code></td><td><code>2.108</code></td><td><code>0.050</code></td></tr>
+<tr><td><code>CHLN-2</code></td><td><code>186.27</code></td><td><code>28.82</code></td><td><code>5.40</code></td><td><code>8.362</code></td><td><code>7.148</code></td></tr>
+</tbody>
+</table></div>
+<h2>作者如何解讀這些結果</h2>
+<h3>1. 考慮滯後後，擬合明顯改善</h3>
+<p>作者用 <code>SEE</code> 與 <code>ME</code> 比較後指出，Case 2 對五口井的擬合優於 Case 1 與 Greene (1993)，尤其在早期抽水時間更好。</p>
+<h3>2. 不同井可能呈現不同主導機制</h3>
+<ul>
+<li><code>LC</code>、<code>SP-2</code>：<code>s_q &lt; s_s</code>，偏向結構互制主導。</li>
+<li><code>BHPL</code>、<code>CL-2</code>、<code>CHLN-2</code>：<code>s_q &gt; s_s</code>，偏向慣性主導。</li>
+</ul>
+<p>這代表同一場抽水試驗中，不同觀測位置可能反映不同局部機制。</p>
+<h3>3. 滯後時間與觀測距離呈增加趨勢</h3>
+<p>作者以 <code>LC</code>、<code>SP-2</code>、<code>CL-2</code>、<code>CHLN-2</code> 做回歸後指出，<code>s_q</code> 與 <code>s_s</code> 都隨觀測距離增加而變大，顯示：</p>
+<ul>
+<li>距離越遠</li>
+<li>流動系統建立響應所需時間越長</li>
+<li>lagging behavior 具有尺度效應</li>
+</ul>
+<h2>對實務的啟示</h2>
+<ul>
+<li>若早期抽水資料擬合不佳，不一定只是量測誤差，也可能是滯後行為未被模型描述。</li>
+<li>若不同觀測井估出的 <code>s_q</code>、<code>s_s</code> 差異很大，可能反映地層異質性、裂隙方向性或局部結構差異。</li>
+<li>對裂隙含水層而言，只用單一經典 type curve 做圖解判釋，可能低估早期動態資訊。</li>
+</ul>
+    </article>
+  </main>
+</body>
+</html>

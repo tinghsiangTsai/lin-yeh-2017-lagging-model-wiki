@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>解析解與方法 | Lin & Yeh (2017) 滯後抽水降深模型 Wiki</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="page-bg"></div>
+  <header class="site-header">
+    <div class="brand">
+      <a href="Home.html">Lin & Yeh (2017) 滯後抽水降深模型 Wiki</a>
+      <span>Leaky Confined Aquifer | Constant-Rate Pumping</span>
+    </div>
+    <nav class="top-nav">
+      <a href="Home.html">Lin &amp; Yeh (2017) 滯後抽水降深模型 Wiki</a>
+<a href="index.html">首頁索引</a>
+<a href="pages__00-前言-解析解與數值解.html">前言：解析解與數值解</a>
+<a href="pages__00-論文總覽.html">論文總覽</a>
+<a href="pages__01-研究動機與核心主張.html">研究動機與核心主張</a>
+<a href="pages__02-數學模型與假設.html">數學模型與假設</a>
+<a href="pages__03-解析解與方法.html">解析解與方法</a>
+<a href="pages__04-結果與參數意義.html">結果與參數意義</a>
+<a href="pages__05-案例與應用.html">案例與應用</a>
+<a href="pages__06-符號與參數表.html">符號與參數表</a>
+<a href="pages__99-資料來源與檔案說明.html">資料來源與檔案說明</a>
+    </nav>
+  </header>
+  <main class="layout">
+    <aside class="sidebar">
+      <section class="sidebar-block">
+        <h2>本站說明</h2>
+        <p>這個頁面是整理後的閱讀版內容，適合順著導覽理解論文脈絡。</p>
+      </section>
+      <section class="sidebar-block">
+        <h2>來源與對照</h2>
+        <p><a href="raw/source__pages__03-解析解與方法_md.html">查看對應 Markdown</a></p>
+        <p><a href="raw/index.html">開啟 raw 索引</a></p>
+      </section>
+      <section class="sidebar-block">
+        <h2>主題頁面</h2>
+        <ul class="sidebar-list">
+          <li><a href="pages__00-前言-解析解與數值解.html">前言：解析解與數值解</a></li><li><a href="pages__00-論文總覽.html">論文總覽</a></li><li><a href="pages__01-研究動機與核心主張.html">研究動機與核心主張</a></li><li><a href="pages__02-數學模型與假設.html">數學模型與假設</a></li><li><a href="pages__03-解析解與方法.html">解析解與方法</a></li><li><a href="pages__04-結果與參數意義.html">結果與參數意義</a></li><li><a href="pages__05-案例與應用.html">案例與應用</a></li><li><a href="pages__06-符號與參數表.html">符號與參數表</a></li><li><a href="pages__99-資料來源與檔案說明.html">資料來源與檔案說明</a></li>
+        </ul>
+      </section>
+    </aside>
+    <article class="content-card prose">
+      <h1>解析解與方法</h1>
+<p>這頁回答：作者如何解方程，以及新模型和雙重孔隙模型之間是什麼關係。</p>
+<h2>求解策略</h2>
+<p>作者分兩條路徑求解。</p>
+<h3>1. 含井筒儲水時</h3>
+<ul>
+<li>把無因次控制方程做 Laplace 轉換。</li>
+<li>將問題化為含修正 Bessel 函數 <code>I0</code>、<code>K0</code> 的常微分方程。</li>
+<li>利用內外邊界條件求得 Laplace 域降深解。</li>
+</ul>
+<p>Laplace 域結果的核心形式可整理為：</p>
+<div class="equation-block compact">
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mover accent="true">
+      <mi>s</mi>
+      <mo stretchy="true">‾</mo>
+    </mover>
+    <mi>D</mi>
+  </msub>
+  <mo>=</mo>
+  <mfrac>
+    <mrow>
+      <mn>2</mn>
+      <msub>
+        <mi>K</mi>
+        <mn>0</mn>
+      </msub>
+      <mo>(</mo>
+      <mi>k</mi>
+      <msub>
+        <mi>r</mi>
+        <mi>D</mi>
+      </msub>
+      <mo>)</mo>
+    </mrow>
+    <mrow>
+      <msub>
+        <mi>C</mi>
+        <mi>D</mi>
+      </msub>
+      <msup>
+        <mi>p</mi>
+        <mn>2</mn>
+      </msup>
+      <msub>
+        <mi>K</mi>
+        <mn>0</mn>
+      </msub>
+      <mo>(</mo>
+      <mi>k</mi>
+      <mo>)</mo>
+      <mo>+</mo>
+      <mi>k</mi>
+      <mi>p</mi>
+      <mo>(</mo>
+      <mn>1</mn>
+      <mo>+</mo>
+      <msub>
+        <mi>C</mi>
+        <mi>D</mi>
+      </msub>
+      <mi>p</mi>
+      <msub>
+        <mi>S</mi>
+        <mi>k</mi>
+      </msub>
+      <mo>)</mo>
+      <msub>
+        <mi>K</mi>
+        <mn>1</mn>
+      </msub>
+      <mo>(</mo>
+      <mi>k</mi>
+      <mo>)</mo>
+    </mrow>
+  </mfrac>
+</math>
+</div>
+<p>其中 <code>k</code> 由 <code>p</code>、<code>j</code>、<code>s_qD</code>、<code>s_sD</code> 組成，反映洩漏與滯後共同作用。</p>
+<h3>2. 忽略井筒儲水與井半徑時</h3>
+<ul>
+<li>先做 Laplace 轉換。</li>
+<li>再用 Weber 轉換回到時間域。</li>
+<li>得到可直接分析 <code>s_qD</code>、<code>s_sD</code> 影響的解析積分式。</li>
+</ul>
+<p>作者在文中也說明，當 <code>s_qD = s_sD = 0</code>，解可退化為 Hantush 與 Jacob 的經典洩漏承壓含水層解。</p>
+<h2>與經典模型的關係</h2>
+<h3>可退化為 Hantush-Jacob 解</h3>
+<p>若：</p>
+<ul>
+<li>不考慮滯後，即 <code>s_qD = 0</code>、<code>s_sD = 0</code></li>
+<li>再取極小井半徑近似</li>
+</ul>
+<p>新模型會回到傳統的洩漏承壓含水層抽水解。這表示新模型不是推翻舊模型，而是把舊模型包在更一般的框架內。</p>
+<h3>與雙重孔隙模型的數學相似性</h3>
+<p>論文將雙重孔隙模型中 fracture 與 matrix 的方程整理後，得到與本研究控制方程近似的形式，並對應出：</p>
+<div class="equation-block compact">
+<div class="eq-row">
+  <span><span class="eq-i">s</span><sub>s</sub></span>
+  <span class="eq-op">=</span>
+  <span class="eq-frac">
+    <span class="num"><span class="eq-i">S</span><sub>m</sub></span>
+    <span class="den"><span class="eq-i">b</span></span>
+  </span>
+</div>
+<div class="eq-row">
+  <span><span class="eq-i">S</span></span>
+  <span class="eq-op">=</span>
+  <span><span class="eq-i">S</span><sub>f</sub> + <span class="eq-i">S</span><sub>m</sub></span>
+</div>
+<div class="eq-row">
+  <span><span class="eq-i">s</span><sub>q</sub></span>
+  <span class="eq-op">=</span>
+  <span class="eq-frac">
+    <span class="num"><span class="eq-i">S</span><sub>m</sub> <span class="eq-i">S</span><sub>f</sub></span>
+    <span class="den"><span class="eq-i">b</span> (<span class="eq-i">S</span><sub>f</sub> + <span class="eq-i">S</span><sub>m</sub>)</span>
+  </span>
+</div>
+</div>
+<p>這代表：</p>
+<ul>
+<li>數學上，新模型與雙重孔隙模型非常接近。</li>
+<li>物理上，雙重孔隙模型強調 fracture 與 matrix 的交換。</li>
+<li>本文模型強調滯後響應本身，可解讀為慣性與結構互制共同控制。</li>
+</ul>
+<h2>作者強調的新模型優勢</h2>
+<ul>
+<li>雙重孔隙模型常隱含 <code>s_q &lt; s_s</code> 的限制。</li>
+<li>本文模型可描述 <code>s_q &gt; s_s</code> 的慣性主導情況。</li>
+<li>因此對裂隙地下水流的適用範圍更廣。</li>
+</ul>
+<h2>方法上的實務意義</h2>
+<p>從抽水試驗判釋的角度，這篇論文提供的不只是新解，而是多了兩個可估參的時間尺度：</p>
+<ul>
+<li><code>s_q</code>：水流慣性或快速反應時間尺度</li>
+<li><code>s_s</code>：結構互制或非互連空間造成的延遲時間尺度</li>
+</ul>
+<p>這讓抽水曲線中「早期偏慢」與「中期平坦」有了更直接的參數化表達。</p>
+    </article>
+  </main>
+</body>
+</html>

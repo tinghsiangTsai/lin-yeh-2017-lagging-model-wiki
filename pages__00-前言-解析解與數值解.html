@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>前言：解析解與數值解 | Lin & Yeh (2017) 滯後抽水降深模型 Wiki</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="page-bg"></div>
+  <header class="site-header">
+    <div class="brand">
+      <a href="Home.html">Lin & Yeh (2017) 滯後抽水降深模型 Wiki</a>
+      <span>Leaky Confined Aquifer | Constant-Rate Pumping</span>
+    </div>
+    <nav class="top-nav">
+      <a href="Home.html">Lin &amp; Yeh (2017) 滯後抽水降深模型 Wiki</a>
+<a href="index.html">首頁索引</a>
+<a href="pages__00-前言-解析解與數值解.html">前言：解析解與數值解</a>
+<a href="pages__00-論文總覽.html">論文總覽</a>
+<a href="pages__01-研究動機與核心主張.html">研究動機與核心主張</a>
+<a href="pages__02-數學模型與假設.html">數學模型與假設</a>
+<a href="pages__03-解析解與方法.html">解析解與方法</a>
+<a href="pages__04-結果與參數意義.html">結果與參數意義</a>
+<a href="pages__05-案例與應用.html">案例與應用</a>
+<a href="pages__06-符號與參數表.html">符號與參數表</a>
+<a href="pages__99-資料來源與檔案說明.html">資料來源與檔案說明</a>
+    </nav>
+  </header>
+  <main class="layout">
+    <aside class="sidebar">
+      <section class="sidebar-block">
+        <h2>本站說明</h2>
+        <p>這個頁面是整理後的閱讀版內容，適合順著導覽理解論文脈絡。</p>
+      </section>
+      <section class="sidebar-block">
+        <h2>來源與對照</h2>
+        <p><a href="raw/source__pages__00-前言-解析解與數值解_md.html">查看對應 Markdown</a></p>
+        <p><a href="raw/index.html">開啟 raw 索引</a></p>
+      </section>
+      <section class="sidebar-block">
+        <h2>主題頁面</h2>
+        <ul class="sidebar-list">
+          <li><a href="pages__00-前言-解析解與數值解.html">前言：解析解與數值解</a></li><li><a href="pages__00-論文總覽.html">論文總覽</a></li><li><a href="pages__01-研究動機與核心主張.html">研究動機與核心主張</a></li><li><a href="pages__02-數學模型與假設.html">數學模型與假設</a></li><li><a href="pages__03-解析解與方法.html">解析解與方法</a></li><li><a href="pages__04-結果與參數意義.html">結果與參數意義</a></li><li><a href="pages__05-案例與應用.html">案例與應用</a></li><li><a href="pages__06-符號與參數表.html">符號與參數表</a></li><li><a href="pages__99-資料來源與檔案說明.html">資料來源與檔案說明</a></li>
+        </ul>
+      </section>
+    </aside>
+    <article class="content-card prose">
+      <h1>前言：解析解與數值解</h1>
+<p>這頁回答：什麼是解析解與數值解、兩者的核心差異在哪裡、各自的優缺點與常見用途是什麼。</p>
+<h2>為什麼這頁要放在前面</h2>
+<p>這個 wiki 的主體是在整理一篇含有解析解推導的地下水論文。 在進入論文本身之前，先分清楚「解析解」與「數值解」的定位，會更容易理解這篇論文的方法價值與適用範圍。</p>
+<h2>核心差異</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>項目</th><th>解析解</th><th>數值解</th></tr></thead>
+<tbody>
+<tr><td>定義</td><td>把問題解成明確的數學公式</td><td>先把連續問題離散化，再用電腦逐步近似求解</td></tr>
+<tr><td>結果形式</td><td>得到封閉形式或明確公式</td><td>得到一組近似數值結果</td></tr>
+<tr><td>求解方式</td><td>代入參數即可算值</td><td>需依賴網格、步長、迭代或矩陣運算</td></tr>
+<tr><td>主要價值</td><td>理論理解、參數關係、基準解</td><td>複雜系統模擬、工程分析、情境預測</td></tr>
+</tbody>
+</table></div>
+<h2>一個重要前提</h2>
+<p>解析解雖然常被稱為「精確解」，但這個精確是指：</p>
+<ul>
+<li>它對你建立的那個數學模型精確</li>
+<li>不一定代表它對真實世界最精確</li>
+</ul>
+<p>原因是很多真實工程問題太複雜，要得到解析解，通常必須先做理想化假設。</p>
+<h2>解析解常見的理想化假設</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>假設類型</th><th>典型內容</th></tr></thead>
+<tbody>
+<tr><td>幾何</td><td>幾何形狀規則、邊界容易描述</td></tr>
+<tr><td>介質</td><td>均質、等向、參數固定</td></tr>
+<tr><td>邊界條件</td><td>簡單、可分段或可直接指定</td></tr>
+<tr><td>系統性質</td><td>線性、可疊加</td></tr>
+<tr><td>初始條件</td><td>容易表示、容易配合積分或轉換</td></tr>
+</tbody>
+</table></div>
+<p>所以解析解常常是對「簡化模型」的精確解。 數值解雖然只是近似解，但因為能容納更多真實條件，在工程上常更實用。</p>
+<h2>優缺點比較</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>面向</th><th>解析解的優點</th><th>解析解的限制</th><th>數值解的優點</th><th>數值解的限制</th></tr></thead>
+<tbody>
+<tr><td>精確性</td><td>對設定的數學模型是精確的</td><td>對模型精確，不代表對現實最貼近</td><td>能逼近複雜真實系統</td><td>只是近似值，不是封閉精確公式</td></tr>
+<tr><td>物理理解</td><td>容易看出參數之間的關係</td><td>太複雜時公式本身也可能難讀</td><td>可模擬更多現實現象</td><td>不一定容易直接看出參數關係</td></tr>
+<tr><td>適用問題</td><td>很適合理論分析與標準問題</td><td>複雜邊界、非均質、非線性時常求不出來</td><td>可處理複雜幾何、非均質、非線性</td><td>受網格、步長、穩定性影響</td></tr>
+<tr><td>計算成本</td><td>通常代公式就能快速求值</td><td>先決條件是要能推得出公式</td><td>幾乎所有可寫成方程式的問題都能近似求解</td><td>需要電腦計算與數值設定</td></tr>
+<tr><td>研究用途</td><td>很適合當基準解與驗證解</td><td>適用範圍常受理想化假設限制</td><td>很適合做工程模擬與預測</td><td>會有截斷誤差與捨入誤差</td></tr>
+</tbody>
+</table></div>
+<h2>分別常拿來做什麼</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>用途類型</th><th>解析解常用於</th><th>數值解常用於</th></tr></thead>
+<tbody>
+<tr><td>理論研究</td><td>建立理論模型、推導變數關係、理解系統行為</td><td>驗證理論在複雜條件下的延伸表現</td></tr>
+<tr><td>教學與標準問題</td><td>教科書例題、經典案例、型曲線</td><td>示範離散化方法與演算法效果</td></tr>
+<tr><td>模型驗證</td><td>驗證數值程式是否正確</td><td>比較不同數值方法或不同網格設定</td></tr>
+<tr><td>工程應用</td><td>邊界條件簡單的快速估算</td><td>真實地下水流、熱傳、流體、結構、情境模擬</td></tr>
+<tr><td>決策支援</td><td>快速判讀參數影響方向</td><td>設計、預測、風險評估、情境分析</td></tr>
+</tbody>
+</table></div>
+<h2>對本 wiki 的意義</h2>
+<p>這篇 Lin 與 Yeh (2017) 論文的重要價值之一，就是它提供了一個可用於理解滯後抽水行為的解析模型。 這種解析解特別適合：</p>
+<ul>
+<li>看清楚 <code>T</code>、<code>S</code>、<code>K&#x27;</code>、<code>s_q</code>、<code>s_s</code> 的關係</li>
+<li>做敏感度分析</li>
+<li>和其他經典模型比較</li>
+<li>當作更複雜數值模型的理論參考</li>
+</ul>
+<p>但若未來要面對更複雜的地質條件、非均質場或更真實的邊界條件，數值解通常會更有延伸性。</p>
+<h2>一句話總結</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>類型</th><th>一句話總結</th></tr></thead>
+<tbody>
+<tr><td>解析解</td><td>對簡化模型很精確，特別適合理論分析與機制理解</td></tr>
+<tr><td>數值解</td><td>對複雜現實問題更能用，特別適合工程模擬與預測</td></tr>
+</tbody>
+</table></div>
+    </article>
+  </main>
+</body>
+</html>

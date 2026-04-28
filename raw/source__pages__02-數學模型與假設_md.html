@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>pages/02-數學模型與假設.md | Lin & Yeh (2017) 滯後抽水降深模型 Wiki</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <div class="page-bg"></div>
+  <header class="site-header">
+    <div class="brand">
+      <a href="../Home.html">Lin & Yeh (2017) 滯後抽水降深模型 Wiki</a>
+      <span>Leaky Confined Aquifer | Constant-Rate Pumping</span>
+    </div>
+    <nav class="top-nav">
+      <a href="../Home.html">Lin &amp; Yeh (2017) 滯後抽水降深模型 Wiki</a>
+<a href="../index.html">首頁索引</a>
+<a href="../pages__00-前言-解析解與數值解.html">前言：解析解與數值解</a>
+<a href="../pages__00-論文總覽.html">論文總覽</a>
+<a href="../pages__01-研究動機與核心主張.html">研究動機與核心主張</a>
+<a href="../pages__02-數學模型與假設.html">數學模型與假設</a>
+<a href="../pages__03-解析解與方法.html">解析解與方法</a>
+<a href="../pages__04-結果與參數意義.html">結果與參數意義</a>
+<a href="../pages__05-案例與應用.html">案例與應用</a>
+<a href="../pages__06-符號與參數表.html">符號與參數表</a>
+<a href="../pages__99-資料來源與檔案說明.html">資料來源與檔案說明</a>
+    </nav>
+  </header>
+  <main class="layout">
+    <aside class="sidebar">
+      <section class="sidebar-block">
+        <h2>本站說明</h2>
+        <p>這個頁面屬於 raw 區，提供原始 PDF、抽字結果與 Markdown 原文對照。</p>
+      </section>
+      <section class="sidebar-block">
+        <h2>來源與對照</h2>
+        
+        <p><a href="index.html">開啟 raw 索引</a></p>
+      </section>
+      <section class="sidebar-block">
+        <h2>主題頁面</h2>
+        <ul class="sidebar-list">
+          <li><a href="../pages__00-前言-解析解與數值解.html">前言：解析解與數值解</a></li><li><a href="../pages__00-論文總覽.html">論文總覽</a></li><li><a href="../pages__01-研究動機與核心主張.html">研究動機與核心主張</a></li><li><a href="../pages__02-數學模型與假設.html">數學模型與假設</a></li><li><a href="../pages__03-解析解與方法.html">解析解與方法</a></li><li><a href="../pages__04-結果與參數意義.html">結果與參數意義</a></li><li><a href="../pages__05-案例與應用.html">案例與應用</a></li><li><a href="../pages__06-符號與參數表.html">符號與參數表</a></li><li><a href="../pages__99-資料來源與檔案說明.html">資料來源與檔案說明</a></li>
+        </ul>
+      </section>
+    </aside>
+    <article class="content-card prose">
+      <h1>pages/02-數學模型與假設.md</h1><p>這裡顯示此頁對應的 Markdown 原始內容。</p><pre class="source-pre"># 數學模型與假設
+
+這頁回答：控制方程怎麼來、假設有哪些、無因次化之後每個參數代表什麼。
+
+## 幾何與系統假設
+
+- 含水層為洩漏承壓含水層。
+- 側向無限延伸。
+- 抽水井完全穿透主含水層。
+- 含水層厚度為 `b`，弱透水層厚度為 `B&#x27;`。
+- 抽水井半徑為 `r_w`，套管半徑為 `r_c`。
+- 初始狀態下 `s = 0`，且 `∂s/∂t = 0`。
+- 外邊界採 `r -&gt; ∞` 時 `s -&gt; 0`。
+
+## 傳統 Darcy 定律
+
+論文先從徑向 Darcy 定律開始：
+
+&lt;div class=&quot;equation-block compact&quot;&gt;
+&lt;div class=&quot;eq-row&quot;&gt;
+  &lt;span&gt;&lt;span class=&quot;eq-i&quot;&gt;q&lt;/span&gt;&lt;sub&gt;r&lt;/sub&gt;(&lt;span class=&quot;eq-i&quot;&gt;r&lt;/span&gt;, &lt;span class=&quot;eq-i&quot;&gt;t&lt;/span&gt;)&lt;/span&gt;
+  &lt;span class=&quot;eq-op&quot;&gt;=&lt;/span&gt;
+  &lt;span&gt;-&lt;span class=&quot;eq-i&quot;&gt;K&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;eq-frac&quot;&gt;
+    &lt;span class=&quot;num&quot;&gt;∂&lt;span class=&quot;eq-i&quot;&gt;s&lt;/span&gt;(&lt;span class=&quot;eq-i&quot;&gt;r&lt;/span&gt;, &lt;span class=&quot;eq-i&quot;&gt;t&lt;/span&gt;)&lt;/span&gt;
+    &lt;span class=&quot;den&quot;&gt;∂&lt;span class=&quot;eq-i&quot;&gt;r&lt;/span&gt;&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+這個式子意味著通量與梯度同步。
+
+## 廣義 Darcy 定律
+
+作者改寫為：
+
+&lt;div class=&quot;equation-block compact&quot;&gt;
+&lt;div class=&quot;eq-row&quot;&gt;
+  &lt;span&gt;&lt;span class=&quot;eq-i&quot;&gt;q&lt;/span&gt;&lt;sub&gt;r&lt;/sub&gt;(&lt;span class=&quot;eq-i&quot;&gt;r&lt;/span&gt;, &lt;span class=&quot;eq-i&quot;&gt;t&lt;/span&gt; + &lt;span class=&quot;eq-i&quot;&gt;s&lt;/span&gt;&lt;sub&gt;q&lt;/sub&gt;)&lt;/span&gt;
+  &lt;span class=&quot;eq-op&quot;&gt;=&lt;/span&gt;
+  &lt;span&gt;-&lt;span class=&quot;eq-i&quot;&gt;K&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;eq-frac&quot;&gt;
+    &lt;span class=&quot;num&quot;&gt;∂&lt;span class=&quot;eq-i&quot;&gt;s&lt;/span&gt;(&lt;span class=&quot;eq-i&quot;&gt;r&lt;/span&gt;, &lt;span class=&quot;eq-i&quot;&gt;t&lt;/span&gt; + &lt;span class=&quot;eq-i&quot;&gt;s&lt;/span&gt;&lt;sub&gt;s&lt;/sub&gt;)&lt;/span&gt;
+    &lt;span class=&quot;den&quot;&gt;∂&lt;span class=&quot;eq-i&quot;&gt;r&lt;/span&gt;&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+經一階 Taylor 展開後，可得到含 `s_q` 與 `s_s` 的近似形式。把它代入質量守恆：
+
+&lt;div class=&quot;equation-block&quot;&gt;
+&lt;div class=&quot;eq-row&quot;&gt;
+  &lt;span class=&quot;eq-paren&quot;&gt;(&lt;/span&gt;
+  &lt;span&gt;1 + &lt;span class=&quot;eq-i&quot;&gt;s&lt;/span&gt;&lt;sub&gt;s&lt;/sub&gt; &lt;span class=&quot;eq-frac&quot;&gt;&lt;span class=&quot;num&quot;&gt;∂&lt;/span&gt;&lt;span class=&quot;den&quot;&gt;∂&lt;span class=&quot;eq-i&quot;&gt;t&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;eq-paren&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;eq-paren&quot;&gt;(&lt;/span&gt;
+  &lt;span&gt;&lt;span class=&quot;eq-frac&quot;&gt;&lt;span class=&quot;num&quot;&gt;∂&lt;sup&gt;2&lt;/sup&gt;&lt;span class=&quot;eq-i&quot;&gt;s&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;den&quot;&gt;∂&lt;span class=&quot;eq-i&quot;&gt;r&lt;/span&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;eq-op&quot;&gt;+&lt;/span&gt;
+  &lt;span&gt;&lt;span class=&quot;eq-frac&quot;&gt;&lt;span class=&quot;num&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;den&quot;&gt;&lt;span class=&quot;eq-i&quot;&gt;r&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;eq-frac&quot;&gt;&lt;span class=&quot;num&quot;&gt;∂&lt;span class=&quot;eq-i&quot;&gt;s&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;den&quot;&gt;∂&lt;span class=&quot;eq-i&quot;&gt;r&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;eq-paren&quot;&gt;)&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;eq-row&quot;&gt;
+  &lt;span class=&quot;eq-op&quot;&gt;−&lt;/span&gt;
+  &lt;span class=&quot;eq-paren&quot;&gt;(&lt;/span&gt;
+  &lt;span&gt;1 + &lt;span class=&quot;eq-i&quot;&gt;s&lt;/span&gt;&lt;sub&gt;q&lt;/sub&gt; &lt;span class=&quot;eq-frac&quot;&gt;&lt;span class=&quot;num&quot;&gt;∂&lt;/span&gt;&lt;span class=&quot;den&quot;&gt;∂&lt;span class=&quot;eq-i&quot;&gt;t&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;eq-paren&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;eq-frac&quot;&gt;
+    &lt;span class=&quot;num&quot;&gt;&lt;span class=&quot;eq-i&quot;&gt;K&lt;/span&gt;&lt;sup&gt;′&lt;/sup&gt;&lt;/span&gt;
+    &lt;span class=&quot;den&quot;&gt;&lt;span class=&quot;eq-i&quot;&gt;B&lt;/span&gt;&lt;sup&gt;′&lt;/sup&gt; &lt;span class=&quot;eq-i&quot;&gt;T&lt;/span&gt;&lt;/span&gt;
+  &lt;/span&gt;
+  &lt;span&gt;&lt;span class=&quot;eq-i&quot;&gt;s&lt;/span&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;eq-row&quot;&gt;
+  &lt;span class=&quot;eq-op&quot;&gt;=&lt;/span&gt;
+  &lt;span class=&quot;eq-frac&quot;&gt;
+    &lt;span class=&quot;num&quot;&gt;&lt;span class=&quot;eq-i&quot;&gt;S&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;den&quot;&gt;&lt;span class=&quot;eq-i&quot;&gt;T&lt;/span&gt;&lt;/span&gt;
+  &lt;/span&gt;
+  &lt;span class=&quot;eq-paren&quot;&gt;(&lt;/span&gt;
+  &lt;span&gt;1 + &lt;span class=&quot;eq-i&quot;&gt;s&lt;/span&gt;&lt;sub&gt;q&lt;/sub&gt; &lt;span class=&quot;eq-frac&quot;&gt;&lt;span class=&quot;num&quot;&gt;∂&lt;/span&gt;&lt;span class=&quot;den&quot;&gt;∂&lt;span class=&quot;eq-i&quot;&gt;t&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;eq-paren&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;eq-frac&quot;&gt;
+    &lt;span class=&quot;num&quot;&gt;∂&lt;span class=&quot;eq-i&quot;&gt;s&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;den&quot;&gt;∂&lt;span class=&quot;eq-i&quot;&gt;t&lt;/span&gt;&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+## 物理上怎麼看這個方程
+
+- 左側第一項：徑向降深曲率與空間擴散。
+- 左側第二項：經由弱透水層的洩漏作用。
+- 右側：儲水與時間變化。
+- `s_q` 與 `s_s` 讓方程帶有類似波動的特性，不再是單純擴散式。
+
+作者也明確指出，這個控制方程已不是傳統擴散方程，而更接近波動型方程。
+
+## 井內邊界條件
+
+### 定流量與井筒儲水
+
+井壁邊界把抽水量 `Q` 與井筒儲水一起放進去：
+
+&lt;div class=&quot;equation-block compact&quot;&gt;
+&lt;div class=&quot;eq-row&quot;&gt;
+  &lt;span&gt;−2π &lt;span class=&quot;eq-i&quot;&gt;r&lt;/span&gt;&lt;sub&gt;w&lt;/sub&gt; &lt;span class=&quot;eq-i&quot;&gt;T&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;eq-frac&quot;&gt;
+    &lt;span class=&quot;num&quot;&gt;∂&lt;span class=&quot;eq-i&quot;&gt;s&lt;/span&gt;(&lt;span class=&quot;eq-i&quot;&gt;r&lt;/span&gt;&lt;sub&gt;w&lt;/sub&gt;, &lt;span class=&quot;eq-i&quot;&gt;t&lt;/span&gt;)&lt;/span&gt;
+    &lt;span class=&quot;den&quot;&gt;∂&lt;span class=&quot;eq-i&quot;&gt;r&lt;/span&gt;&lt;/span&gt;
+  &lt;/span&gt;
+  &lt;span class=&quot;eq-op&quot;&gt;=&lt;/span&gt;
+  &lt;span&gt;&lt;span class=&quot;eq-i&quot;&gt;Q&lt;/span&gt; + π &lt;span class=&quot;eq-i&quot;&gt;r&lt;/span&gt;&lt;sub&gt;c&lt;/sub&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/span&gt;
+  &lt;span class=&quot;eq-frac&quot;&gt;
+    &lt;span class=&quot;num&quot;&gt;d&lt;span class=&quot;eq-i&quot;&gt;H&lt;/span&gt;(&lt;span class=&quot;eq-i&quot;&gt;t&lt;/span&gt;)&lt;/span&gt;
+    &lt;span class=&quot;den&quot;&gt;d&lt;span class=&quot;eq-i&quot;&gt;t&lt;/span&gt;&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+其中 `H(t)` 是井內降深。
+
+### 井皮效應
+
+&lt;div class=&quot;equation-block compact&quot;&gt;
+&lt;div class=&quot;eq-row&quot;&gt;
+  &lt;span&gt;&lt;span class=&quot;eq-i&quot;&gt;H&lt;/span&gt;(&lt;span class=&quot;eq-i&quot;&gt;t&lt;/span&gt;)&lt;/span&gt;
+  &lt;span class=&quot;eq-op&quot;&gt;=&lt;/span&gt;
+  &lt;span&gt;&lt;span class=&quot;eq-i&quot;&gt;s&lt;/span&gt;(&lt;span class=&quot;eq-i&quot;&gt;r&lt;/span&gt;&lt;sub&gt;w&lt;/sub&gt;, &lt;span class=&quot;eq-i&quot;&gt;t&lt;/span&gt;)&lt;/span&gt;
+  &lt;span class=&quot;eq-op&quot;&gt;−&lt;/span&gt;
+  &lt;span&gt;&lt;span class=&quot;eq-i&quot;&gt;S&lt;/span&gt;&lt;sub&gt;k&lt;/sub&gt; &lt;span class=&quot;eq-i&quot;&gt;r&lt;/span&gt;&lt;sub&gt;w&lt;/sub&gt;&lt;/span&gt;
+  &lt;span class=&quot;eq-frac&quot;&gt;
+    &lt;span class=&quot;num&quot;&gt;∂&lt;span class=&quot;eq-i&quot;&gt;s&lt;/span&gt;(&lt;span class=&quot;eq-i&quot;&gt;r&lt;/span&gt;&lt;sub&gt;w&lt;/sub&gt;, &lt;span class=&quot;eq-i&quot;&gt;t&lt;/span&gt;)&lt;/span&gt;
+    &lt;span class=&quot;den&quot;&gt;∂&lt;span class=&quot;eq-i&quot;&gt;r&lt;/span&gt;&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+`S_k` 為井皮因子。
+
+## 無因次化
+
+論文使用的重要無因次量如下：
+
+| 符號 | 定義 | 意義 |
+| --- | --- | --- |
+| `s_D` | `4πT s / Q` | 無因次降深 |
+| `H_D` | `4πT H / Q` | 無因次井內降深 |
+| `r_D` | `r / r_w` | 無因次半徑 |
+| `t_D` | `T t / (S r_w²)` | 無因次時間 |
+| `C_D` | `r_c² / (2 S r_w²)` | 無因次井筒儲水 |
+| `s_qD` | `T s_q / (S r_w²)` | 無因次通量滯後 |
+| `s_sD` | `T s_s / (S r_w²)` | 無因次梯度滯後 |
+| `j` | `K&#x27; / (B&#x27; T)` | 洩漏強度參數 |
+
+## 此模型最重要的判斷條件
+
+- `s_q = s_s`：額外滯後行為不顯著。
+- `s_q &lt; s_s`：結構互制主導。
+- `s_q &gt; s_s`：慣性效應主導。
+</pre>
+    </article>
+  </main>
+</body>
+</html>

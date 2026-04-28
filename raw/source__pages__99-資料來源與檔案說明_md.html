@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>pages/99-資料來源與檔案說明.md | Lin & Yeh (2017) 滯後抽水降深模型 Wiki</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <div class="page-bg"></div>
+  <header class="site-header">
+    <div class="brand">
+      <a href="../Home.html">Lin & Yeh (2017) 滯後抽水降深模型 Wiki</a>
+      <span>Leaky Confined Aquifer | Constant-Rate Pumping</span>
+    </div>
+    <nav class="top-nav">
+      <a href="../Home.html">Lin &amp; Yeh (2017) 滯後抽水降深模型 Wiki</a>
+<a href="../index.html">首頁索引</a>
+<a href="../pages__00-前言-解析解與數值解.html">前言：解析解與數值解</a>
+<a href="../pages__00-論文總覽.html">論文總覽</a>
+<a href="../pages__01-研究動機與核心主張.html">研究動機與核心主張</a>
+<a href="../pages__02-數學模型與假設.html">數學模型與假設</a>
+<a href="../pages__03-解析解與方法.html">解析解與方法</a>
+<a href="../pages__04-結果與參數意義.html">結果與參數意義</a>
+<a href="../pages__05-案例與應用.html">案例與應用</a>
+<a href="../pages__06-符號與參數表.html">符號與參數表</a>
+<a href="../pages__99-資料來源與檔案說明.html">資料來源與檔案說明</a>
+    </nav>
+  </header>
+  <main class="layout">
+    <aside class="sidebar">
+      <section class="sidebar-block">
+        <h2>本站說明</h2>
+        <p>這個頁面屬於 raw 區，提供原始 PDF、抽字結果與 Markdown 原文對照。</p>
+      </section>
+      <section class="sidebar-block">
+        <h2>來源與對照</h2>
+        
+        <p><a href="index.html">開啟 raw 索引</a></p>
+      </section>
+      <section class="sidebar-block">
+        <h2>主題頁面</h2>
+        <ul class="sidebar-list">
+          <li><a href="../pages__00-前言-解析解與數值解.html">前言：解析解與數值解</a></li><li><a href="../pages__00-論文總覽.html">論文總覽</a></li><li><a href="../pages__01-研究動機與核心主張.html">研究動機與核心主張</a></li><li><a href="../pages__02-數學模型與假設.html">數學模型與假設</a></li><li><a href="../pages__03-解析解與方法.html">解析解與方法</a></li><li><a href="../pages__04-結果與參數意義.html">結果與參數意義</a></li><li><a href="../pages__05-案例與應用.html">案例與應用</a></li><li><a href="../pages__06-符號與參數表.html">符號與參數表</a></li><li><a href="../pages__99-資料來源與檔案說明.html">資料來源與檔案說明</a></li>
+        </ul>
+      </section>
+    </aside>
+    <article class="content-card prose">
+      <h1>pages/99-資料來源與檔案說明.md</h1><p>這裡顯示此頁對應的 Markdown 原始內容。</p><pre class="source-pre"># 資料來源與檔案說明
+
+這頁回答：本 wiki 的原始材料在哪裡、各資料夾做什麼、如何重建網站。
+
+## 原始資料
+
+- 原始論文 PDF：`raw/Lin_Yeh_2017_lagging_model.pdf`
+- PDF 抽取文字：`raw/Lin_Yeh_2017_lagging_model.txt`
+
+## 資料來源說明
+
+- PDF 來源為工作目錄中的原始論文檔案。
+- `txt` 由 `scripts/extract_pdf_text.py` 自 PDF 逐頁抽字產生。
+- 本 wiki 各頁內容由 PDF 內文整理而成，屬於研究筆記與知識整理。
+
+## 檔案夾說明
+
+| 路徑 | 用途 |
+| --- | --- |
+| `raw/` | 保留原始 PDF 與抽字結果 |
+| `pages/` | 主題式 Markdown 頁面 |
+| `scripts/` | 抽字、建站、啟動 localhost |
+| `site/` | 產生後的靜態網站 |
+
+## 如何重建
+
+1. 執行 `python scripts/extract_pdf_text.py`
+2. 執行 `python scripts/build_site.py`
+3. 執行 `python scripts/serve_site.py`
+4. 以瀏覽器開啟 localhost 位址
+
+## raw 索引頁
+
+`site/raw/index.html` 不是目錄列表，而是由建站腳本主動生成的說明頁，方便直接閱讀：
+
+- 原始 PDF
+- 抽取文字
+- 各 Markdown 原始碼對應頁
+
+## 查看對應 Markdown
+
+每一個網站頁面側欄都有 `查看對應 Markdown` 連結，會打開 `site/raw/source__...html`，用來對照：
+
+- 原始 Markdown 內容
+- 原站頁面顯示結果
+</pre>
+    </article>
+  </main>
+</body>
+</html>

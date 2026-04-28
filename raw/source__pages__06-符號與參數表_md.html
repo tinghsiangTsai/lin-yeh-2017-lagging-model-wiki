@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>pages/06-符號與參數表.md | Lin & Yeh (2017) 滯後抽水降深模型 Wiki</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <div class="page-bg"></div>
+  <header class="site-header">
+    <div class="brand">
+      <a href="../Home.html">Lin & Yeh (2017) 滯後抽水降深模型 Wiki</a>
+      <span>Leaky Confined Aquifer | Constant-Rate Pumping</span>
+    </div>
+    <nav class="top-nav">
+      <a href="../Home.html">Lin &amp; Yeh (2017) 滯後抽水降深模型 Wiki</a>
+<a href="../index.html">首頁索引</a>
+<a href="../pages__00-前言-解析解與數值解.html">前言：解析解與數值解</a>
+<a href="../pages__00-論文總覽.html">論文總覽</a>
+<a href="../pages__01-研究動機與核心主張.html">研究動機與核心主張</a>
+<a href="../pages__02-數學模型與假設.html">數學模型與假設</a>
+<a href="../pages__03-解析解與方法.html">解析解與方法</a>
+<a href="../pages__04-結果與參數意義.html">結果與參數意義</a>
+<a href="../pages__05-案例與應用.html">案例與應用</a>
+<a href="../pages__06-符號與參數表.html">符號與參數表</a>
+<a href="../pages__99-資料來源與檔案說明.html">資料來源與檔案說明</a>
+    </nav>
+  </header>
+  <main class="layout">
+    <aside class="sidebar">
+      <section class="sidebar-block">
+        <h2>本站說明</h2>
+        <p>這個頁面屬於 raw 區，提供原始 PDF、抽字結果與 Markdown 原文對照。</p>
+      </section>
+      <section class="sidebar-block">
+        <h2>來源與對照</h2>
+        
+        <p><a href="index.html">開啟 raw 索引</a></p>
+      </section>
+      <section class="sidebar-block">
+        <h2>主題頁面</h2>
+        <ul class="sidebar-list">
+          <li><a href="../pages__00-前言-解析解與數值解.html">前言：解析解與數值解</a></li><li><a href="../pages__00-論文總覽.html">論文總覽</a></li><li><a href="../pages__01-研究動機與核心主張.html">研究動機與核心主張</a></li><li><a href="../pages__02-數學模型與假設.html">數學模型與假設</a></li><li><a href="../pages__03-解析解與方法.html">解析解與方法</a></li><li><a href="../pages__04-結果與參數意義.html">結果與參數意義</a></li><li><a href="../pages__05-案例與應用.html">案例與應用</a></li><li><a href="../pages__06-符號與參數表.html">符號與參數表</a></li><li><a href="../pages__99-資料來源與檔案說明.html">資料來源與檔案說明</a></li>
+        </ul>
+      </section>
+    </aside>
+    <article class="content-card prose">
+      <h1>pages/06-符號與參數表.md</h1><p>這裡顯示此頁對應的 Markdown 原始內容。</p><pre class="source-pre"># 符號與參數表
+
+這頁回答：論文裡最常用的符號各代表什麼，便於查表閱讀。
+
+## 基本變數
+
+| 符號 | 單位 | 意義 |
+| --- | --- | --- |
+| `r` | `m` | 觀測點到抽水井中心的徑向距離 |
+| `t` | `T` | 抽水時間 |
+| `s(r, t)` | `m` | 降深 |
+| `H(t)` | `m` | 井內降深 |
+| `q_r(r, t)` | `L/T` | 徑向 Darcy 通量 |
+| `Q` | `L^3/T` | 定流量抽水率 |
+
+## 水力參數
+
+| 符號 | 單位 | 意義 |
+| --- | --- | --- |
+| `K` | `L/T` | 主含水層導水係數 |
+| `T` | `L^2/T` | 透水量，`T = K * b` |
+| `S` | `1` 或依作者記法 | 儲水係數 |
+| `K&#x27;` | `L/T` | 弱透水層導水係數 |
+| `B&#x27;` | `L` | 弱透水層厚度 |
+| `b` | `L` | 主含水層厚度 |
+| `S_k` | `1` | 井皮因子 |
+
+## 幾何與井參數
+
+| 符號 | 單位 | 意義 |
+| --- | --- | --- |
+| `r_w` | `m` | 抽水井半徑 |
+| `r_c` | `m` | 套管半徑 |
+
+## 滯後參數
+
+| 符號 | 單位 | 意義 |
+| --- | --- | --- |
+| `s_q` | `T` | 水通量相位滯後時間 |
+| `s_s` | `T` | 降深梯度相位滯後時間 |
+
+## 無因次量
+
+| 符號 | 定義 | 說明 |
+| --- | --- | --- |
+| `s_D` | `4πT s / Q` | 無因次降深 |
+| `H_D` | `4πT H / Q` | 無因次井內降深 |
+| `r_D` | `r / r_w` | 無因次距離 |
+| `t_D` | `T t / (S r_w^2)` | 無因次時間 |
+| `C_D` | `r_c^2 / (2 S r_w^2)` | 無因次井筒儲水 |
+| `s_qD` | `T s_q / (S r_w^2)` | 無因次通量滯後 |
+| `s_sD` | `T s_s / (S r_w^2)` | 無因次梯度滯後 |
+| `j` | `K&#x27; / (B&#x27; T)` | 無因次洩漏強度 |
+
+## 特殊函數與轉換
+
+| 符號 | 意義 |
+| --- | --- |
+| `I0`, `K0`, `K1` | 修正 Bessel 函數 |
+| `J0`, `J1`, `Y0`, `Y1` | 第一類與第二類 Bessel 函數 |
+| `p` | Laplace 變數 |
+| `a` | Weber 轉換變數 |
+
+## 與雙重孔隙模型的對照
+
+| 本文符號 | 對應解讀 |
+| --- | --- |
+| `s_s = S_m / b` | 結構延遲時間尺度 |
+| `S = S_f + S_m` | 總儲水效應 |
+| `s_q = S_m S_f / [b (S_f + S_m)]` | 通量滯後時間尺度 |
+</pre>
+    </article>
+  </main>
+</body>
+</html>

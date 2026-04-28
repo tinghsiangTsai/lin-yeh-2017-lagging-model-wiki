@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>pages/00-論文總覽.md | Lin & Yeh (2017) 滯後抽水降深模型 Wiki</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <div class="page-bg"></div>
+  <header class="site-header">
+    <div class="brand">
+      <a href="../Home.html">Lin & Yeh (2017) 滯後抽水降深模型 Wiki</a>
+      <span>Leaky Confined Aquifer | Constant-Rate Pumping</span>
+    </div>
+    <nav class="top-nav">
+      <a href="../Home.html">Lin &amp; Yeh (2017) 滯後抽水降深模型 Wiki</a>
+<a href="../index.html">首頁索引</a>
+<a href="../pages__00-前言-解析解與數值解.html">前言：解析解與數值解</a>
+<a href="../pages__00-論文總覽.html">論文總覽</a>
+<a href="../pages__01-研究動機與核心主張.html">研究動機與核心主張</a>
+<a href="../pages__02-數學模型與假設.html">數學模型與假設</a>
+<a href="../pages__03-解析解與方法.html">解析解與方法</a>
+<a href="../pages__04-結果與參數意義.html">結果與參數意義</a>
+<a href="../pages__05-案例與應用.html">案例與應用</a>
+<a href="../pages__06-符號與參數表.html">符號與參數表</a>
+<a href="../pages__99-資料來源與檔案說明.html">資料來源與檔案說明</a>
+    </nav>
+  </header>
+  <main class="layout">
+    <aside class="sidebar">
+      <section class="sidebar-block">
+        <h2>本站說明</h2>
+        <p>這個頁面屬於 raw 區，提供原始 PDF、抽字結果與 Markdown 原文對照。</p>
+      </section>
+      <section class="sidebar-block">
+        <h2>來源與對照</h2>
+        
+        <p><a href="index.html">開啟 raw 索引</a></p>
+      </section>
+      <section class="sidebar-block">
+        <h2>主題頁面</h2>
+        <ul class="sidebar-list">
+          <li><a href="../pages__00-前言-解析解與數值解.html">前言：解析解與數值解</a></li><li><a href="../pages__00-論文總覽.html">論文總覽</a></li><li><a href="../pages__01-研究動機與核心主張.html">研究動機與核心主張</a></li><li><a href="../pages__02-數學模型與假設.html">數學模型與假設</a></li><li><a href="../pages__03-解析解與方法.html">解析解與方法</a></li><li><a href="../pages__04-結果與參數意義.html">結果與參數意義</a></li><li><a href="../pages__05-案例與應用.html">案例與應用</a></li><li><a href="../pages__06-符號與參數表.html">符號與參數表</a></li><li><a href="../pages__99-資料來源與檔案說明.html">資料來源與檔案說明</a></li>
+        </ul>
+      </section>
+    </aside>
+    <article class="content-card prose">
+      <h1>pages/00-論文總覽.md</h1><p>這裡顯示此頁對應的 Markdown 原始內容。</p><pre class="source-pre"># 論文總覽
+
+這頁回答：這篇論文研究什麼、用了什麼方法、得到什麼結論，以及讀者應該如何快速掌握重點。
+
+## 研究問題
+
+作者要處理的核心問題是：傳統 Darcy 定律與擴散型地下水流方程，假設降深梯度一出現，水通量就立刻響應，等價於壓力或降深擾動以無限快速度傳播。對某些裂隙含水層、非互連孔隙系統、或高滲透快速反應情境，這種假設可能過於理想化。
+
+## 研究對象
+
+- 抽水型式：定流量抽水 `Q`
+- 含水層型式：無限側向延伸的洩漏承壓含水層
+- 幾何條件：完全穿透抽水井，考慮井半徑、套管半徑
+- 其他效應：可納入井筒儲水、井皮、上覆弱透水層洩漏
+
+## 核心做法
+
+- 以 Tzou 的雙相位滯後觀念類比 Fourier 熱傳導延遲。
+- 將廣義 Darcy 定律寫成水通量 `q_r` 與降深梯度 `∂s/∂r` 不必同時發生。
+- 引入兩個滯後時間：
+  - `s_q`：水通量滯後，偏向反映慣性或快速暫態效應。
+  - `s_s`：降深梯度滯後，偏向反映非互連孔隙或孤立裂隙造成的結構互制效應。
+- 建立控制方程後，推導：
+  - 含井筒儲水時的 Laplace 域半解析解
+  - 忽略井筒儲水與井半徑時的時間域解析解
+
+## 主要發現
+
+1. 新模型與雙重孔隙模型在數學形式上相似，但物理出發點不同。
+2. `s_q &lt; s_s` 時，結構互制效應主導，降深曲線在 `s_q` 到 `s_s` 間容易出現近乎平坦的延遲段。
+3. `s_q &gt; s_s` 時，慣性效應主導，早期降深可能更慢，甚至出現波動感。
+4. 敏感度分析顯示，降深對 `T` 與 `S` 很敏感；滯後參數的影響主要集中在與其時間尺度相近的時段。
+5. 套用 South Dakota Madison aquifer 現地資料時，考慮滯後之後，早期時間降深擬合更好。
+
+## 閱讀建議
+
+1. 若只想知道論文貢獻，讀 [01 研究動機與核心主張](./01-研究動機與核心主張.md)。
+2. 若要理解方程式，接著讀 [02 數學模型與假設](./02-數學模型與假設.md)。
+3. 若要掌握解法與和既有模型的關係，讀 [03 解析解與方法](./03-解析解與方法.md)。
+4. 若想直接看參數判釋與現地應用，讀 [04 結果與參數意義](./04-結果與參數意義.md) 與 [05 案例與應用](./05-案例與應用.md)。
+</pre>
+    </article>
+  </main>
+</body>
+</html>

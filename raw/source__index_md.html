@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>index.md | Lin & Yeh (2017) 滯後抽水降深模型 Wiki</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <div class="page-bg"></div>
+  <header class="site-header">
+    <div class="brand">
+      <a href="../Home.html">Lin & Yeh (2017) 滯後抽水降深模型 Wiki</a>
+      <span>Leaky Confined Aquifer | Constant-Rate Pumping</span>
+    </div>
+    <nav class="top-nav">
+      <a href="../Home.html">Lin &amp; Yeh (2017) 滯後抽水降深模型 Wiki</a>
+<a href="../index.html">首頁索引</a>
+<a href="../pages__00-前言-解析解與數值解.html">前言：解析解與數值解</a>
+<a href="../pages__00-論文總覽.html">論文總覽</a>
+<a href="../pages__01-研究動機與核心主張.html">研究動機與核心主張</a>
+<a href="../pages__02-數學模型與假設.html">數學模型與假設</a>
+<a href="../pages__03-解析解與方法.html">解析解與方法</a>
+<a href="../pages__04-結果與參數意義.html">結果與參數意義</a>
+<a href="../pages__05-案例與應用.html">案例與應用</a>
+<a href="../pages__06-符號與參數表.html">符號與參數表</a>
+<a href="../pages__99-資料來源與檔案說明.html">資料來源與檔案說明</a>
+    </nav>
+  </header>
+  <main class="layout">
+    <aside class="sidebar">
+      <section class="sidebar-block">
+        <h2>本站說明</h2>
+        <p>這個頁面屬於 raw 區，提供原始 PDF、抽字結果與 Markdown 原文對照。</p>
+      </section>
+      <section class="sidebar-block">
+        <h2>來源與對照</h2>
+        
+        <p><a href="index.html">開啟 raw 索引</a></p>
+      </section>
+      <section class="sidebar-block">
+        <h2>主題頁面</h2>
+        <ul class="sidebar-list">
+          <li><a href="../pages__00-前言-解析解與數值解.html">前言：解析解與數值解</a></li><li><a href="../pages__00-論文總覽.html">論文總覽</a></li><li><a href="../pages__01-研究動機與核心主張.html">研究動機與核心主張</a></li><li><a href="../pages__02-數學模型與假設.html">數學模型與假設</a></li><li><a href="../pages__03-解析解與方法.html">解析解與方法</a></li><li><a href="../pages__04-結果與參數意義.html">結果與參數意義</a></li><li><a href="../pages__05-案例與應用.html">案例與應用</a></li><li><a href="../pages__06-符號與參數表.html">符號與參數表</a></li><li><a href="../pages__99-資料來源與檔案說明.html">資料來源與檔案說明</a></li>
+        </ul>
+      </section>
+    </aside>
+    <article class="content-card prose">
+      <h1>index.md</h1><p>這裡顯示此頁對應的 Markdown 原始內容。</p><pre class="source-pre"># 首頁索引
+
+## 論文資訊
+
+- 題名：A Lagging Model for Describing Drawdown Induced by a Constant-Rate Pumping in a Leaky Confined Aquifer
+- 作者：Ye-Chen Lin、Hund-Der Yeh
+- 期刊：`Water Resources Research`
+- 卷期頁：53，8500-8511
+- DOI：`10.1002/2017WR021115`
+- 發表時間：2017-10-27
+
+## 內容地圖
+
+| 頁面 | 重點 |
+| --- | --- |
+| [00 前言：解析解與數值解](./pages/00-前言-解析解與數值解.md) | 解析解與數值解的差異、優缺點、用途與閱讀前提 |
+| [00 論文總覽](./pages/00-論文總覽.md) | 研究問題、方法、主要發現與閱讀順序 |
+| [01 研究動機與核心主張](./pages/01-研究動機與核心主張.md) | 為何要修改 Darcy 定律、作者真正想解決的問題 |
+| [02 數學模型與假設](./pages/02-數學模型與假設.md) | 控制方程、邊界條件、無因次化與物理意義 |
+| [03 解析解與方法](./pages/03-解析解與方法.md) | Laplace 解、Weber 轉換、與雙重孔隙模型比較 |
+| [04 結果與參數意義](./pages/04-結果與參數意義.md) | `T`、`S`、`K&#x27;`、`s_q`、`s_s` 對降深的影響 |
+| [05 案例與應用](./pages/05-案例與應用.md) | South Dakota Madison aquifer 的抽水試驗應用 |
+| [06 符號與參數表](./pages/06-符號與參數表.md) | 常用符號、單位、相互關係 |
+| [99 資料來源與檔案說明](./pages/99-資料來源與檔案說明.md) | 原始 PDF、文字抽取、站點腳本與輸出說明 |
+
+## 快速結論
+
+- 這個 wiki 先用一頁前言整理解析解與數值解的差異，幫助讀者理解本論文的方法定位。
+- 這篇論文將 `s_q` 與 `s_s` 兩個相位滯後時間引入廣義 Darcy 定律。
+- 當 `s_q = s_s` 時，滯後效應消失，模型退回無額外滯後行為的情況。
+- 當 `s_q &lt; s_s` 時，結構互制效應主導；當 `s_q &gt; s_s` 時，慣性效應主導。
+- 作者指出此模型和雙重孔隙模型在數學形式上相近，但物理詮釋更一般，能描述雙重孔隙模型難以涵蓋的慣性主導情形。
+- 現地資料套用顯示，考慮滯後之後，早期時間降深擬合明顯改善。
+</pre>
+    </article>
+  </main>
+</body>
+</html>
